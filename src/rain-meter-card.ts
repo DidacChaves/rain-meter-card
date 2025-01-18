@@ -11,7 +11,7 @@ import {
   getLovelace,
 } from 'custom-card-helpers'; // This is a community maintained npm module with common helper functions/types. https://github.com/custom-cards/custom-card-helpers
 
-import type { RainGaugeCardConfig } from './types';
+import type { RainMeterCardConfig } from './types';
 import { actionHandler } from './action-handler-directive';
 import { CARD_VERSION } from './const';
 import { localize } from './localize/localize';
@@ -32,7 +32,7 @@ console.info(
 });
 
 @customElement('rain-meter-card')
-export class RainGaugeCard extends LitElement {
+export class RainMeterCard extends LitElement {
   public static async getConfigElement(): Promise<LovelaceCardEditor> {
     await import('./editor');
     return document.createElement('rain-meter-card-editor');
@@ -46,10 +46,10 @@ export class RainGaugeCard extends LitElement {
   // https://lit.dev/docs/components/properties/
   @property({ attribute: false }) public hass!: HomeAssistant;
 
-  @state() private config!: RainGaugeCardConfig;
+  @state() private config!: RainMeterCardConfig;
 
   // https://lit.dev/docs/components/properties/#accessors-custom
-  public setConfig(config: RainGaugeCardConfig): void {
+  public setConfig(config: RainMeterCardConfig): void {
     if (!config) {
       throw new Error(localize('common.invalid_configuration'));
     }

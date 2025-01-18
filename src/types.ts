@@ -7,7 +7,7 @@ declare global {
   }
 }
 
-export interface RainGaugeCardConfig extends LovelaceCardConfig {
+export interface RainMeterCardConfig extends LovelaceCardConfig {
   type: string;
   name?: string;
   border_colour?: string;
