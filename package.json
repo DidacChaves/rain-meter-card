@@ -1,5 +1,5 @@
 {
-  "name": "rain-gauge-card",
+  "name": "rain-meter-card",
   "version": "1.4.0",
   "description": "A Lovelace card that shows the rain gauge for Home Assistant",
   "keywords": [
@@ -10,8 +10,8 @@
     "lovelace",
     "custom-cards"
   ],
-  "module": "rain-gauge-card.js",
-  "repository": "git@github.com:t1gr0u/rain-gauge-card.git",
+  "module": "rain-meter-card.js",
+  "repository": "git@github.com:t1gr0u/rain-meter-card.git",
   "author": "T1gr0u <tigrou.m@gmail.com>",
   "license": "MIT",
   "dependencies": {

@@ -16,23 +16,22 @@ A Lovelace card that shows the rain gauge for [Home Assistant](https://home-assi
 
 1. Go to HACS page on your Home Assistant instance
 1. Select `Frontend`
-1. Press add icon and search for `rain-gauge`
+1. Press add icon and search for `rain-meter`
 1. Select Rain Gauge Card repo and install
 1. Force refresh the Home Assistant page (<kbd>Ctrl</kbd> + <kbd>F5</kbd>)
-1. Add rain-gauge-card to your page
+1. Add rain-meter-card to your page
 
-[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=t1gr0u&repository=rain-gauge-card&category=plugin)
 
 ### Manual
 
-1. Download the 'rain-gauge-card.js' from the latest [release](https://github.com/t1gr0u/rain-gauge-card/releases) (with right click, save link as)
+1. Download the 'rain-meter-card.js' from the latest [release](https://github.com/didacchaves/rain-meter-card/releases) (with right click, save link as)
 1. Place the downloaded file on your Home Assistant machine in the `config/www` folder (when there is no `www` folder in the folder where your `configuration.yaml` file is, create it and place the file there)
 1. In Home Assistant go to `Configuration->Lovelace Dashboards->Resources` (When there is no `resources` tag on the `Lovelace Dashboard` page, enable advanced mode in your account settings, and retry this step)
 1. Add a new resource
-   1. Url = `/local/rain-gauge-card.js`
+   1. Url = `/local/rain-meter-card.js`
    1. Resource type = `module`
 1. Force refresh the Home Assistant page (<kbd>Ctrl</kbd> + <kbd>F5</kbd>)
-1. Add rain-gauge-card to your page
+1. Add rain-meter-card to your page
 
 ## Using the card
 
@@ -40,7 +39,7 @@ A Lovelace card that shows the rain gauge for [Home Assistant](https://home-assi
 - Or add the card manually with the following (minimal) configuration:
 
 ```yaml
-type: custom:rain-gauge-card
+type: custom:rain-meter-card
 entity: sensor.rain_daily
 ```
 
@@ -49,18 +48,18 @@ entity: sensor.rain_daily
 ### Default
 
 ```yaml
-type: custom:rain-gauge-card
+type: custom:rain-meter-card
 entity: sensor.rain_daily
 ```
 
-![Default](https://github.com/t1gr0u/rain-gauge-card/blob/master/docs/images/rain-gauge-card.png?raw=true)
+![Default](https://github.com/didacchaves/rain-meter-card/blob/master/docs/images/rain-meter-card.png?raw=true)
 
 
 ## Options
 
 | Name              | Type    | Requirement  | Description                                                              | Default             |
 | ----------------- | ------- | ------------ | ------------------------------------------------------------------------ | ------------------- |
-| type              | string  | **Required** | `custom:rain-gauge-card`                                                 |                     |
+| type              | string  | **Required** | `custom:rain-meter-card`                                                 |                     |
 | name              | string  | **Optional** | Card name                                                                | `Rain Gauge`        |
 | border_colour     | string  | **Optional** | Change the border colour                                                 | `#000000`           |
 | fill_drop_colour  | string  | **Optional** | Change the drop colour                                                   | `#04ACFF`           |
@@ -93,12 +92,12 @@ entity: sensor.rain_daily
 The following languages are supported:
 
 | Language  | Yaml value | Supported | Translated by                                                                       |
-| --------- | ---------- | --------- | ----------------------------------------------------------------------------------- |
+| --------- | ---------- |-----------| ----------------------------------------------------------------------------------- |
 | Czech     | `cs`       | v1.3.1    | [@MiisaTrAnCe](https://github.com/MiisaTrAnCe)                                      |
 | Danish    | `da`       | v1.3.1    | [@Tntdruid](https://github.com/Tntdruid)                                            |
 | Dutch     | `nl`       | v1.3.1    | [@jobvk](https://github.com/jobvk)                                                  |
-| English   | `en`       | v1.0.0    | [@t1gr0u](https://github.com/t1gr0u)                                                |
-| French    | `fr`       | v1.0.0    | [@t1gr0u](https://github.com/t1gr0u)                                                |
+| English   | `en`       | v1.0.0    | [@didacchaves](https://github.com/didacchaves)                                                |
+| French    | `fr`       | v1.0.0    | [@didacchaves](https://github.com/didacchaves)                                                |
 | Italian   | `it`       | v1.4.0    | [@StefanoGiugliano](https://github.com/StefanoGiugliano)                            |
 | German    | `de`       | v1.3.1    | [@AndLindemann](https://github.com/AndLindemann)                                    |
 | Hungarian | `ha`       | v1.3.1    | [@erelke](https://github.com/erelke)                                                |
@@ -106,6 +105,8 @@ The following languages are supported:
 | Slovakia  | `sk`       | v1.4.0    | [@milandzuris](https://github.com/milandzuris)                                      |
 | Slovenian | `sl`       | v1.1.0    | [@mnheia](https://github.com/mnheia)                                                |
 | Swedish   | `sv`       | v1.4.0    | [@tangix](https://github.com/tangix)                                                |
+| Spanish   | `es`       | v1.4.1    | [@lluiscantoncallau](https://github.com/lluiscantoncallau)                          |
+| Catalan   | `ca`       | v1.4.1    | [@lluiscantoncallau](https://github.com/lluiscantoncallau)                          |
 
 #### How to add a language
 
@@ -125,22 +126,22 @@ If you wish to add a language please follow these steps:
 
 Clone and create a PR to help make the card even better.
 
-[releases-shield]: https://img.shields.io/github/release/t1gr0u/rain-gauge-card.svg?style=flat-square
-[releases-link]: https://github.com/t1gr0u/rain-gauge-card/releases/latest
-[release-date-shield]: https://img.shields.io/github/release-date/t1gr0u/rain-gauge-card?style=flat-square
-[latest-download-shield]: https://img.shields.io/github/downloads/t1gr0u/rain-gauge-card/latest/total?style=flat-square&label=downloads%20latest%20release
-[total-download-shield]: https://img.shields.io/github/downloads/t1gr0u/rain-gauge-card/total?style=flat-square&label=total%20views
-[traffic-link]: https://github.com/t1gr0u/rain-gauge-card/graphs/traffic
+[releases-shield]: https://img.shields.io/github/release/didacchaves/rain-meter-card.svg?style=flat-square
+[releases-link]: https://github.com/didacchaves/rain-meter-card/releases/latest
+[release-date-shield]: https://img.shields.io/github/release-date/didacchaves/rain-meter-card?style=flat-square
+[latest-download-shield]: https://img.shields.io/github/downloads/didacchaves/rain-meter-card/latest/total?style=flat-square&label=downloads%20latest%20release
+[total-download-shield]: https://img.shields.io/github/downloads/didacchaves/rain-meter-card/total?style=flat-square&label=total%20views
+[traffic-link]: https://github.com/didacchaves/rain-meter-card/graphs/traffic
 [hacs-shield]: https://img.shields.io/badge/HACS-Default-orange.svg?style=flat-square
 [hacs-link]: https://github.com/custom-components/hacs
 [home-assistant-shield]: https://img.shields.io/badge/Home%20Assistant-visual%20editor/yaml-green?style=flat-square
 [home-assistant-link]: https://www.home-assistant.io/
 [license-shield]: https://img.shields.io/github/license/custom-cards/boilerplate-card.svg?style=flat-square
 [license-link]: LICENSE.md
-[activity-shield]: https://img.shields.io/github/commit-activity/y/t1gr0u/rain-gauge-card.svg?style=flat-square
-[activity-link]: https://github.com/t1gr0u/rain-gauge-card/commits/master
-[bugs-shield]: https://img.shields.io/github/issues/t1gr0u/rain-gauge-card/bug?color=red&style=flat-square&label=bugs
-[bugs-link]: https://github.com/t1gr0u/rain-gauge-card/labels/bug
-[enhancements-shield]: https://img.shields.io/github/issues/t1gr0u/rain-gauge-card/enhancement?color=blue&style=flat-square&label=enhancements
-[enhancement-link]: https://github.com/t1gr0u/rain-gauge-card/labels/enhancement
+[activity-shield]: https://img.shields.io/github/commit-activity/y/didacchaves/rain-meter-card.svg?style=flat-square
+[activity-link]: https://github.com/didacchaves/rain-meter-card/commits/master
+[bugs-shield]: https://img.shields.io/github/issues/didacchaves/rain-meter-card/bug?color=red&style=flat-square&label=bugs
+[bugs-link]: https://github.com/didacchaves/rain-meter-card/labels/bug
+[enhancements-shield]: https://img.shields.io/github/issues/didacchaves/rain-meter-card/enhancement?color=blue&style=flat-square&label=enhancements
+[enhancement-link]: https://github.com/didacchaves/rain-meter-card/labels/enhancement
 [maintenance-shield]: https://img.shields.io/maintenance/yes/2023.svg?style=flat-square

@@ -11,7 +11,7 @@ import { switchDefinition } from '../elements/switch';
 import { textfieldDefinition } from '../elements/textfield';
 import { CARD_LANGUAGES } from './localize/localize';
 
-@customElement('rain-gauge-card-editor')
+@customElement('rain-meter-card-editor')
 export class RainGaugeCardEditor extends ScopedRegistryHost(LitElement) implements LovelaceCardEditor {
   @property({ attribute: false }) public hass?: HomeAssistant;
 

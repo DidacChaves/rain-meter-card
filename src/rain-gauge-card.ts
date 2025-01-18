@@ -18,7 +18,7 @@ import { localize } from './localize/localize';
 
 /* eslint no-console: 0 */
 console.info(
-  `%c  RAIN-GAUGE-CARD \n%c  ${localize('common.version')} ${CARD_VERSION}    `,
+  `%c  rain-meter-CARD \n%c  ${localize('common.version')} ${CARD_VERSION}    `,
   'color: orange; font-weight: bold; background: black',
   'color: white; font-weight: bold; background: dimgray',
 );
@@ -26,16 +26,16 @@ console.info(
 // This puts your card into the UI card picker dialog
 (window as any).customCards = (window as any).customCards || [];
 (window as any).customCards.push({
-  type: 'rain-gauge-card',
+  type: 'rain-meter-card',
   name: 'Rain Gauge Card',
   description: 'A template custom card for you to create something awesome',
 });
 
-@customElement('rain-gauge-card')
+@customElement('rain-meter-card')
 export class RainGaugeCard extends LitElement {
   public static async getConfigElement(): Promise<LovelaceCardEditor> {
     await import('./editor');
-    return document.createElement('rain-gauge-card-editor');
+    return document.createElement('rain-meter-card-editor');
   }
 
   public static getStubConfig(): Record<string, unknown> {
