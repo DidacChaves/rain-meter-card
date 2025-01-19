@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/DidacChaves/rain-meter-card/compare/v1.1.1...v1.1.2) (2025-01-19)
+
+
+### Bug Fixes
+
+* **master:** change drop icon ([c91aa65](https://github.com/DidacChaves/rain-meter-card/commit/c91aa6521ccd2bc909f40cd57241e9656f10f792))
+
 ## [1.1.1](https://github.com/DidacChaves/rain-meter-card/compare/v1.1.0...v1.1.1) (2025-01-19)
 
 
