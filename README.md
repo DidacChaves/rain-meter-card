@@ -13,9 +13,10 @@ A Lovelace card that shows the rain gauge for [Home Assistant](https://home-assi
 ### [HACS](https://hacs.xyz/) (Home Assistant Community Store)
 
 1. Go to HACS page on your Home Assistant instance
-1. Select `Frontend`
+1. add the repository in custom repositories
+   1. URL: `https://github.com/DidacChaves/rain-meter-card`  
 1. Press add icon and search for `rain-meter`
-1. Select Rain Gauge Card repo and install
+1. Select Rain Metter Card repo and install
 1. Force refresh the Home Assistant page (<kbd>Ctrl</kbd> + <kbd>F5</kbd>)
 1. Add rain-meter-card to your page
 
