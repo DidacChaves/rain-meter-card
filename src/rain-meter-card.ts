@@ -141,7 +141,7 @@ export class RainMeterCard extends LitElement {
         .label=${`Rain Gauge: ${this.config.entity || 'No Entity Defined'}`}
       >
         <div style="display: flex;">
-          <div style="width: 50%; padding-left: 30px;">
+          <div style="width: 50%; padding-bottom: 20px;">
             <div id="banner">
               <div>
                 <svg version="1.1" id="logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" viewBox="0 0 32 32">
@@ -163,12 +163,33 @@ export class RainMeterCard extends LitElement {
               </div>
             </div>
           </div>
-          <div>
+          <div style="padding-left:10px">
             <div>
-              <p>
-                <span style="font-weight: bold;">${localize('common.total', '', '', this.config.language)}</span><br/>
-                ${stateValue} ${unitOfMeasurement}
-              </p>
+              <div style="
+                color: var(--secondary-text-color);
+                line-height: 40px;
+                font-weight: 500;
+                font-size: 16px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+              ">
+                ${localize('common.total', '', '', this.config.language)}
+              </div>
+              <span style="
+                font-size: 28px;
+                margin-right: 4px;
+                margin-inline-end: 4px;
+                margin-inline-start: initial;
+              ">
+                ${stateValue}
+              </span>
+              <span style="
+                font-size: 18px;
+                color: var(--secondary-text-color);
+              ">
+                 ${unitOfMeasurement}
+              </span>
             </div>
             <div>
               ${this._showHourlyRate(hourlyRateEntityState, hourlyRateStateValue, unitOfMeasurement)}
@@ -182,8 +203,31 @@ export class RainMeterCard extends LitElement {
   private _showHourlyRate(hourlyRateEntityState: any | undefined, hourlyRateStateValue: number, unitOfMeasurement: string): TemplateResult | void {
     if (hourlyRateEntityState === undefined) return
     return html`<p>
-      <span style="font-weight: bold;">${localize('common.rate', '', '', this.config.language)}</span><br/>
-      ${hourlyRateStateValue} ${unitOfMeasurement}/h
+      <div style="
+          color: var(--secondary-text-color);
+        line-height: 40px;
+        font-weight: 500;
+        font-size: 16px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        ">
+            ${localize('common.rate', '', '', this.config.language)}
+      </div>
+      <span style="
+        font-size: 28px;
+        margin-right: 4px;
+        margin-inline-end: 4px;
+        margin-inline-start: initial;
+        ">
+        ${hourlyRateStateValue} 
+      </span>
+      <span style="
+        font-size: 18px;
+        color: var(--secondary-text-color);
+      ">
+        ${unitOfMeasurement}/h
+      </span>
     </p>`
   }
 
