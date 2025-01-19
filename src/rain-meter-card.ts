@@ -92,51 +92,56 @@ export class RainMeterCard extends LitElement {
         .header=${this.config.name}
         @action=${this._handleAction}
         .actionHandler=${actionHandler({
-      hasHold: hasAction(this.config.hold_action),
-      hasDoubleClick: hasAction(this.config.double_tap_action),
-    })}
+          hasHold: hasAction(this.config.hold_action),
+          hasDoubleClick: hasAction(this.config.double_tap_action),
+        })}
         tabindex="0"
         .label=${`Rain Meter: ${entity || 'No Entity Defined'}`}
       >
         <div style="display: flex;">
-          ${this._renderRainDrop(rainLevel, border_colour || '#000000', fill_drop_colour || '#04ACFF')}
+          ${this._renderRainDrop(rainLevel, border_colour || '#000000', fill_drop_colour)}
           ${this._renderInfo(stateValue, unitOfMeasurement, hourlyRateEntityState, hourlyRateStateValue)}
         </div>
       </ha-card>
     `;
   }
 
-  private _renderRainDrop(rainLevel: number, borderColour: string, fillDropColour: string): TemplateResult {
+  private _renderRainDrop(rainLevel: number, borderColour: string, fillDropColour: string | undefined): TemplateResult {
     return html`
       <div style="width: 50%; padding-bottom: 20px;">
         <div id="banner">
-          <!--<svg version="1.1" id="logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" viewBox="0 0 32 32">
-            <defs>
-              <clipPath id="drop">
-                <path d="M 16 32 C 9.935 32 5 27.065 5 21 C 5 19.158 5.466 17.333 6.348 15.723 L 14.238 1.053 L 14.376 0.857 C 14.749 0.324 15.354 0 16 0 C 16.65 0 17.258 0.328 17.631 0.867 L 17.762 1.053 L 25.655 15.727 C 26.534 17.337 27 19.16 27 21 C 27 27.065 22.065 32 16 32 Z" />
-              </clipPath>
-            </defs>
-            <g clip-path="url(#drop)">
-              <rect width="32" height="250" style="fill:${fillDropColour};" transform="translate(0, ${rainLevel})" />
-            </g>
-            <g>
-              <path d="M16 32c-6.065 0-11-4.935-11-11 0-1.842.466-3.667 1.348-5.277l7.89-14.67.138-.196c.373-.533.978-.857 1.624-.857.65 0 1.258.328 1.631.867l.131.186 7.893 14.674c.879 1.61 1.345 3.433 1.345 5.273 0 6.065-4.935 11-11 11zm-.008-29.985l-7.886 14.662c-.725 1.323-1.106 2.815-1.106 4.323 0 4.963 4.038 9 9 9 4.963 0 9-4.037 9-9 0-1.506-.381-2.999-1.102-4.316l-.004-.006-7.819-14.539-.083-.124zM16 28c-.552 0-1-.447-1-1s.448-1 1-1c2.757 0 5-2.243 5-5 0-.553.447-1 1-1s1 .447 1 1c0 3.859-3.141 7-7 7z" style="fill:${borderColour};"></path>
-            </g>
-          </svg>-->
-          <svg version="1.1" id="logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" viewBox="0 0 32 32">
+          <svg
+            version="1.1"
+            id="logo"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            xml:space="preserve"
+            viewBox="0 0 32 32"
+          >
             <defs>
               <!-- Clip path para limitar el contenido dentro de la forma -->
               <clipPath id="drop">
-                <path d="M 16 32 C 9.935 32 5 27.065 5 21 C 5 19.158 5.466 17.333 6.348 15.723 L 14.238 1.053 L 14.376 0.857 C 14.749 0.324 15.354 0 16 0 C 16.65 0 17.258 0.328 17.631 0.867 L 17.762 1.053 L 25.655 15.727 C 26.534 17.337 27 19.16 27 21 C 27 27.065 22.065 32 16 32 Z" />
+                <path
+                  d="M 16 32 C 9.935 32 5 27.065 5 21 C 5 19.158 5.466 17.333 6.348 15.723 L 14.238 1.053 L 14.376 0.857 C 14.749 0.324 15.354 0 16 0 C 16.65 0 17.258 0.328 17.631 0.867 L 17.762 1.053 L 25.655 15.727 C 26.534 17.337 27 19.16 27 21 C 27 27.065 22.065 32 16 32 Z"
+                />
               </clipPath>
             </defs>
             <!-- Grupo contenido dentro del clip-path -->
             <g clip-path="url(#drop)">
               <!-- Olas estáticas -->
-              <path  style="fill:${fillDropColour};" transform="translate(0, ${rainLevel})" d="M -3.733333333333333 3 Q -2.4 3 -1.07 1.5 Q 1.6 -1.5 4.27 1.5 Q 5.6 3 6.93 3 Q 8.27 3 9.6 1.5 Q 12.27 -1.5 14.93 1.5 Q 16.27 3 17.6 3 Q 18.93 3 20.27 1.5 Q 22.93 -1.5 25.6 1.5 Q 26.93 3 28.27 3 Q 29.6 3 30.93 1.5 Q 33.6 -1.5 36.27 1.5 Q 37.6 3 38.93 3 L 32 200 L 0 200 Z" fill="#59afff"></path>
+              <path
+                  fill="${fillDropColour ? fillDropColour : 'var(--accent-color)'}"
+                style="fill:${fillDropColour};"
+                transform="translate(0, ${rainLevel})"
+                  d="M 0 1 Q 0.67 1 1.33 0.5 Q 2.67 -0.5 4 0.5 Q 4.67 1 5.33 1 Q 6 1 6.67 0.5 Q 8 -0.5 9.33 0.5 Q 10 1 10.67 1 Q 11.33 1 12 0.5 Q 13.33 -0.5 14.67 0.5 Q 15.33 1 16 1 Q 16.67 1 17.33 0.5 Q 18.67 -0.5 20 0.5 Q 20.67 1 21.33 1 Q 22 1 22.67 0.5 Q 24 -0.5 25.33 0.5 Q 26 1 26.67 1 Q 27.33 1 28 0.5 Q 29.33 -0.5 30.67 0.5 Q 31.33 1 32 1 L 32 200 L 0 200 Z"
+              ></path>
             </g>
             <g>
-              <path d="M16 32c-6.065 0-11-4.935-11-11 0-1.842.466-3.667 1.348-5.277l7.89-14.67.138-.196c.373-.533.978-.857 1.624-.857.65 0 1.258.328 1.631.867l.131.186 7.893 14.674c.879 1.61 1.345 3.433 1.345 5.273 0 6.065-4.935 11-11 11zm-.008-29.985l-7.886 14.662c-.725 1.323-1.106 2.815-1.106 4.323 0 4.963 4.038 9 9 9 4.963 0 9-4.037 9-9 0-1.506-.381-2.999-1.102-4.316l-.004-.006-7.819-14.539-.083-.124zM16 28c-.552 0-1-.447-1-1s.448-1 1-1c2.757 0 5-2.243 5-5 0-.553.447-1 1-1s1 .447 1 1c0 3.859-3.141 7-7 7z" style="fill:${borderColour};"></path>
+              <path
+                d="M16 32c-6.065 0-11-4.935-11-11 0-1.842.466-3.667 1.348-5.277l7.89-14.67.138-.196c.373-.533.978-.857 1.624-.857.65 0 1.258.328 1.631.867l.131.186 7.893 14.674c.879 1.61 1.345 3.433 1.345 5.273 0 6.065-4.935 11-11 11zm-.008-29.985l-7.886 14.662c-.725 1.323-1.106 2.815-1.106 4.323 0 4.963 4.038 9 9 9 4.963 0 9-4.037 9-9 0-1.506-.381-2.999-1.102-4.316l-.004-.006-7.819-14.539-.083-.124zM16 28c-.552 0-1-.447-1-1s.448-1 1-1c2.757 0 5-2.243 5-5 0-.553.447-1 1-1s1 .447 1 1c0 3.859-3.141 7-7 7z"
+                style="fill:${borderColour};"
+                fill="${borderColour ? borderColour : 'var(--secondary-text-color)'}"
+              ></path>
             </g>
           </svg>
         </div>
@@ -145,13 +150,13 @@ export class RainMeterCard extends LitElement {
   }
 
   private _renderInfo(
-      stateValue: number,
-      unitOfMeasurement: string,
-      hourlyRateEntityState: any | undefined,
-      hourlyRateStateValue: number
+    stateValue: number,
+    unitOfMeasurement: string,
+    hourlyRateEntityState: any | undefined,
+    hourlyRateStateValue: number,
   ): TemplateResult {
     return html`
-      <div style="padding-left: 10px;">
+      <div class="text-container">
         <div class="info-text">${localize('common.total', '', '', this.config.language)}</div>
         <div class="value-text">${stateValue} <span class="unit-text">${unitOfMeasurement}</span></div>
         ${this._showHourlyRate(hourlyRateEntityState, hourlyRateStateValue, unitOfMeasurement)}
@@ -159,13 +164,15 @@ export class RainMeterCard extends LitElement {
     `;
   }
 
-  private _showHourlyRate(hourlyRateEntityState: any | undefined, hourlyRateStateValue: number, unitOfMeasurement: string): TemplateResult | void {
+  private _showHourlyRate(
+    hourlyRateEntityState: any | undefined,
+    hourlyRateStateValue: number,
+    unitOfMeasurement: string,
+  ): TemplateResult | void {
     if (!hourlyRateEntityState) return;
     return html`
       <div class="info-text">${localize('common.rate', '', '', this.config.language)}</div>
-      <div class="value-text">
-        ${hourlyRateStateValue} <span class="unit-text">${unitOfMeasurement}/h</span>
-      </div>
+      <div class="value-text">${hourlyRateStateValue} <span class="unit-text">${unitOfMeasurement}/h</span></div>
     `;
   }
 
@@ -199,20 +206,28 @@ export class RainMeterCard extends LitElement {
     return css`
       .info-text {
         color: var(--secondary-text-color);
-        line-height: 40px;
         font-weight: 500;
-        font-size: 16px;
+        font-size: 18px;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
+        padding-bottom: 10px;
       }
       .value-text {
         font-size: 28px;
         margin-right: 4px;
+        padding-bottom: 16px;
       }
       .unit-text {
-        font-size: 18px;
+        font-size: 16px;
         color: var(--secondary-text-color);
+      }
+      .text-container {
+        padding-bottom: 20px;
+        padding-left: 12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
       }
     `;
   }
