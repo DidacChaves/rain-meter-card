@@ -106,7 +106,6 @@ export class RainMeterCard extends LitElement {
       maxLevel = maxLevelOverride
     }
 
-    // 32 min - 0 max
     const rainDropBoxHeight = 32
     let rainLevel = rainDropBoxHeight
     if (totalRainValue > 0 && totalRainValue < maxLevel) {
