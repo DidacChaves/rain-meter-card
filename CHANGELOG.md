@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/DidacChaves/rain-meter-card/compare/v1.0.3...v1.1.0) (2025-01-19)
+
+
+### Features
+
+* **master:** refactor code ([2d8af0c](https://github.com/DidacChaves/rain-meter-card/commit/2d8af0c3c77273b1be4f97a5a74c3eb23b52ca80))
+
 ## [1.0.3](https://github.com/DidacChaves/rain-meter-card/compare/v1.0.2...v1.0.3) (2025-01-19)
 
 
