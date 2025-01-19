@@ -107,7 +107,7 @@ export class RainMeterCard extends LitElement {
     }
 
     // 188 min - 0 max
-    const rainDropBoxHeight = 188
+    const rainDropBoxHeight = 32
     let rainLevel = rainDropBoxHeight
     if (totalRainValue > 0 && totalRainValue < maxLevel) {
       rainLevel = rainDropBoxHeight - Math.round(rainDropBoxHeight / maxLevel * totalRainValue)
@@ -145,20 +145,20 @@ export class RainMeterCard extends LitElement {
           <div style="width: 50%; padding-left: 30px;">
             <div id="banner">
               <div>
-                <svg version="1.1" id="logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="80%" viewBox="0 0 200 200">
+                <svg version="1.1" id="logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" viewBox="0 0 32 32">
                   <defs>
                     <clipPath id="drop">
-                      <path d="M68.2,6.7c0,0-62.4,70.9-62.4,124.7c0,32.3,28,58.4,62.4,58.4s62.4-26.2,62.4-58.4 C130.7,77.6,68.3,6.7,68.2,6.7z"></path>
-                    </clipPath>
+                    <path d="M 16 32 C 9.935 32 5 27.065 5 21 C 5 19.158 5.466 17.333 6.348 15.723 L 14.238 1.053 L 14.376 0.857 C 14.749 0.324 15.354 0 16 0 C 16.65 0 17.258 0.328 17.631 0.867 L 17.762 1.053 L 25.655 15.727 C 26.534 17.337 27 19.16 27 21 C 27 27.065 22.065 32 16 32 Z"/>
+                </clipPath>
                   </defs>
-
-                  <g clip-path="url(#drop)">
+                
+                                  <g clip-path="url(#drop)">
                     <g class="fill2">
-                      <rect width="130" height="190" style="fill:${fillDropColour};" transform="translate(0, ${rainLevel})"/>
+                      <rect width="32" height="32" style="fill:${fillDropColour};" transform="translate(0, ${rainLevel})"/>
                     </g>
                   </g>
-                  <g>
-                    <path transform="" class="st0" d="M68.2,6.7c0,0-62.4,70.9-62.4,124.7c0,32.3,28,58.4,62.4,58.4s62.4-26.2,62.4-58.4 C130.7,77.6,68.3,6.7,68.2,6.7z" style="fill:none; stroke:${borderColour}; stroke-width:4; stroke-miterlimit:5;"></path>
+                                  <g>
+                    <path d="M16 32c-6.065 0-11-4.935-11-11 0-1.842.466-3.667 1.348-5.277l7.89-14.67.138-.196c.373-.533.978-.857 1.624-.857.65 0 1.258.328 1.631.867l.131.186 7.893 14.674c.879 1.61 1.345 3.433 1.345 5.273 0 6.065-4.935 11-11 11zm-.008-29.985l-7.886 14.662c-.725 1.323-1.106 2.815-1.106 4.323 0 4.963 4.038 9 9 9 4.963 0 9-4.037 9-9 0-1.506-.381-2.999-1.102-4.316l-.004-.006-7.819-14.539-.083-.124zM16 28c-.552 0-1-.447-1-1s.448-1 1-1c2.757 0 5-2.243 5-5 0-.553.447-1 1-1s1 .447 1 1c0 3.859-3.141 7-7 7z" style="fill:${borderColour};"></path>
                   </g>
                 </svg>
               </div>

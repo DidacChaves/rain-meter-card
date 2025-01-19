@@ -8,8 +8,6 @@ A Lovelace card that shows the rain gauge for [Home Assistant](https://home-assi
 
 ![Project Maintenance][maintenance-shield] [![GitHub Activity][activity-shield]][activity-link] [![Open bugs][bugs-shield]][bugs-link] [![Open enhancements][enhancements-shield]][enhancement-link]
 
-[![Community Forum][forum-shield]][forum-link]
-
 ## Installation
 
 ### [HACS](https://hacs.xyz/) (Home Assistant Community Store)
@@ -58,9 +56,9 @@ entity: sensor.rain_daily
 ## Options
 
 | Name              | Type    | Requirement  | Description                                                              | Default             |
-| ----------------- | ------- | ------------ | ------------------------------------------------------------------------ | ------------------- |
+| ----------------- | ------- | ------------ | ------------------------------------------------------------------------ |---------------------|
 | type              | string  | **Required** | `custom:rain-meter-card`                                                 |                     |
-| name              | string  | **Optional** | Card name                                                                | `Rain Gauge`        |
+| name              | string  | **Optional** | Card name                                                                | `Rain Meter`        |
 | border_colour     | string  | **Optional** | Change the border colour                                                 | `#000000`           |
 | fill_drop_colour  | string  | **Optional** | Change the drop colour                                                   | `#04ACFF`           |
 | show_error        | boolean | **Optional** | Show what an error looks like for the card                               | `false`             |
@@ -76,37 +74,37 @@ entity: sensor.rain_daily
 
 ## Action Options
 
-| Name            | Type   | Requirement  | Description                                                                                                                            | Default     |
-| --------------- | ------ | ------------ | -------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| action          | string | **Required** | Action to perform (more-info, toggle, call-service, navigate url, none)                                                                | `more-info` |
-| navigation_path | string | **Optional** | Path to navigate to (e.g. /lovelace/0/) when action defined as navigate                                                                | `none`      |
-| url             | string | **Optional** | URL to open on click when action is url. The URL will open in a new tab                                                                | `none`      |
-| service         | string | **Optional** | Service to call (e.g. media_player.media_play_pause) when action defined as call-service                                               | `none`      |
-| service_data    | object | **Optional** | Service data to include (e.g. entity_id: media_player.bedroom) when action defined as call-service                                     | `none`      |
-| haptic          | string | **Optional** | Haptic feedback _success, warning, failure, light, medium, heavy, selection_                                                           | `none`      |
-| repeat          | number | **Optional** | How often to repeat the `hold_action` in milliseconds.                                                                                 | `none`      |
+| Name            | Type   | Requirement  | Description                                                                                               | Default     |
+| --------------- | ------ | ------------ | --------------------------------------------------------------------------------------------------------- | ----------- |
+| action          | string | **Required** | Action to perform (more-info, toggle, call-service, navigate url, no                                      | `more-info` |
+| navigation_path | string | **Optional** | Path to navigate to (e.g. /lovelace/0/) when action defined as navigate                                   | `none`      |
+| url             | string | **Optional** | URL to open on click when action is url. The URL will open in a new tab                                   | `none`      |
+| service         | string | **Optional** | Service to call (e.g. media_player.media_play_pause) when action defined as call-service                  | `none`      |
+| service_data    | object | **Optional** | Service data to include (e.g. entity_id: media_player.bedroom) when action defined as call-service        | `none`      |
+| haptic          | string | **Optional** | Haptic feedback _success, warning, failure, light, medium, heavy, selection_                              | `none`      |
+| repeat          | number | **Optional** | How often to repeat the `hold_action` in milliseconds.                                                    | `none`      |
 
 
 ### Language
 
 The following languages are supported:
 
-| Language  | Yaml value | Supported | Translated by                                                                       |
-| --------- | ---------- |-----------| ----------------------------------------------------------------------------------- |
-| Czech     | `cs`       | v1.3.1    | [@MiisaTrAnCe](https://github.com/MiisaTrAnCe)                                      |
-| Danish    | `da`       | v1.3.1    | [@Tntdruid](https://github.com/Tntdruid)                                            |
-| Dutch     | `nl`       | v1.3.1    | [@jobvk](https://github.com/jobvk)                                                  |
-| English   | `en`       | v1.0.0    | [@didacchaves](https://github.com/didacchaves)                                                |
-| French    | `fr`       | v1.0.0    | [@didacchaves](https://github.com/didacchaves)                                                |
-| Italian   | `it`       | v1.4.0    | [@StefanoGiugliano](https://github.com/StefanoGiugliano)                            |
-| German    | `de`       | v1.3.1    | [@AndLindemann](https://github.com/AndLindemann)                                    |
-| Hungarian | `ha`       | v1.3.1    | [@erelke](https://github.com/erelke)                                                |
-| Portuguese| `pt`       | v1.1.0    | [@ViPeR5000](https://github.com/viper5000)                                          |
-| Slovakia  | `sk`       | v1.4.0    | [@milandzuris](https://github.com/milandzuris)                                      |
-| Slovenian | `sl`       | v1.1.0    | [@mnheia](https://github.com/mnheia)                                                |
-| Swedish   | `sv`       | v1.4.0    | [@tangix](https://github.com/tangix)                                                |
-| Spanish   | `es`       | v1.4.1    | [@lluiscantoncallau](https://github.com/lluiscantoncallau)                          |
-| Catalan   | `ca`       | v1.4.1    | [@lluiscantoncallau](https://github.com/lluiscantoncallau)                          |
+| Language  | Yaml value | Supported | Translated by                                            |
+| --------- | ---------- |-----------|----------------------------------------------------------|
+| Czech     | `cs`       | v1.0.0    | [@MiisaTrAnCe](https://github.com/MiisaTrAnCe)           |
+| Danish    | `da`       | v1.0.0    | [@Tntdruid](https://github.com/Tntdruid)                 |
+| Dutch     | `nl`       | v1.0.0    | [@jobvk](https://github.com/jobvk)                       |
+| English   | `en`       | v1.0.0    | [@t1gr0u](https://github.com/t1gr0u)                     |
+| French    | `fr`       | v1.0.0    | [@t1gr0u](https://github.com/t1gr0u)                     |
+| Italian   | `it`       | v1.0.0    | [@StefanoGiugliano](https://github.com/StefanoGiugliano) |
+| German    | `de`       | v1.0.0    | [@AndLindemann](https://github.com/AndLindemann)         |
+| Hungarian | `ha`       | v1.0.0    | [@erelke](https://github.com/erelke)                     |
+| Portuguese| `pt`       | v1.0.0    | [@ViPeR5000](https://github.com/viper5000)               |
+| Slovakia  | `sk`       | v1.0.0    | [@milandzuris](https://github.com/milandzuris)           |
+| Slovenian | `sl`       | v1.0.0    | [@mnheia](https://github.com/mnheia)                     |
+| Swedish   | `sv`       | v1.0.0    | [@tangix](https://github.com/tangix)                     |
+| Spanish   | `es`       | v1.0.0    | [@didacchaves](https://github.com/didacchaves)           |
+| Catalan   | `ca`       | v1.0.0    | [@didacchaves](https://github.com/didacchaves)           |
 
 #### How to add a language
 
@@ -116,11 +114,6 @@ If you wish to add a language please follow these steps:
 * Duplicate the `en.json` and name it as the language that you would like to add by following the [2 characters ISO language code](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
 * Then modify the `localize.ts` file, located in `src/localize/` to include your language file.
 * Update the `Readme.md`, found in `src/` to include your language and your Github username in the language table.
-
-## Thanks to
-
-- [@iantrich](https://www.github.com/iantrich) for the [boiler-plate card](https://github.com/custom-cards/boilerplate-card), which got me started
-
 
 ## Support
 
@@ -144,4 +137,4 @@ Clone and create a PR to help make the card even better.
 [bugs-link]: https://github.com/didacchaves/rain-meter-card/labels/bug
 [enhancements-shield]: https://img.shields.io/github/issues/didacchaves/rain-meter-card/enhancement?color=blue&style=flat-square&label=enhancements
 [enhancement-link]: https://github.com/didacchaves/rain-meter-card/labels/enhancement
-[maintenance-shield]: https://img.shields.io/maintenance/yes/2023.svg?style=flat-square
+[maintenance-shield]: https://img.shields.io/maintenance/yes/2025.svg?style=flat-square
