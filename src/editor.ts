@@ -29,8 +29,8 @@ export class RainMeterCardEditor extends ScopedRegistryHost(LitElement) implemen
   };
 
   public setConfig(config: RainMeterCardConfig): void {
-    config.grid_options = [];
-    this._config = config;
+    const { grid, ...filteredConfig } = config;
+    this._config = filteredConfig;
 
     this.loadCardHelpers();
   }

@@ -23,5 +23,4 @@ export interface RainMeterCardConfig extends LovelaceCardConfig {
   tap_action?: ActionConfig;
   hold_action?: ActionConfig;
   double_tap_action?: ActionConfig;
-  grid_options?: [];
 }
