@@ -89,6 +89,7 @@ export class RainMeterCard extends LitElement {
 
     return html`
       <ha-card
+          style="height: 100%; display: flex; align-items: center; justify-content: center;"
         .header=${this.config.name}
         @action=${this._handleAction}
         .actionHandler=${actionHandler({
@@ -98,7 +99,7 @@ export class RainMeterCard extends LitElement {
         tabindex="0"
         .label=${`Rain Meter: ${entity || 'No Entity Defined'}`}
       >
-        <div style="display: flex;">
+        <div style="display: flex; flex: 1; flex-direction: row; align-items: center;">
           ${this._renderRainDrop(rainLevel, border_colour || '#000000', fill_drop_colour)}
           ${this._renderInfo(stateValue, unitOfMeasurement, hourlyRateEntityState, hourlyRateStateValue)}
         </div>
@@ -108,41 +109,40 @@ export class RainMeterCard extends LitElement {
 
   private _renderRainDrop(rainLevel: number, borderColour: string, fillDropColour: string | undefined): TemplateResult {
     return html`
-      <div style="width: 50%; padding-bottom: 20px;">
-        <div id="banner">
-          <svg
-            version="1.1"
-            id="logo"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-            xml:space="preserve"
-            viewBox="0 0 32 32"
-          >
-            <defs>
-              <!-- Clip path para limitar el contenido dentro de la forma -->
-              <clipPath id="drop">
-                <path
-                  d="M 16 32 C 9.935 32 5 27.065 5 21 C 5 19.158 5.466 17.333 6.348 15.723 L 14.238 1.053 L 14.376 0.857 C 14.749 0.324 15.354 0 16 0 C 16.65 0 17.258 0.328 17.631 0.867 L 17.762 1.053 L 25.655 15.727 C 26.534 17.337 27 19.16 27 21 C 27 27.065 22.065 32 16 32 Z"
-                />
-              </clipPath>
-            </defs>
-            <!-- Grupo contenido dentro del clip-path -->
-            <g clip-path="url(#drop)">
-              <!-- Olas estáticas -->
-              <path 
-                fill="${fillDropColour ? fillDropColour : 'var(--accent-color)'}"
-                transform="translate(0, ${rainLevel})"
-                d="M 0 1 Q 0.67 1 1.33 0.5 Q 2.67 -0.5 4 0.5 Q 4.67 1 5.33 1 Q 6 1 6.67 0.5 Q 8 -0.5 9.33 0.5 Q 10 1 10.67 1 Q 11.33 1 12 0.5 Q 13.33 -0.5 14.67 0.5 Q 15.33 1 16 1 Q 16.67 1 17.33 0.5 Q 18.67 -0.5 20 0.5 Q 20.67 1 21.33 1 Q 22 1 22.67 0.5 Q 24 -0.5 25.33 0.5 Q 26 1 26.67 1 Q 27.33 1 28 0.5 Q 29.33 -0.5 30.67 0.5 Q 31.33 1 32 1 L 32 200 L 0 200 Z"
-              ></path>
-            </g>
-            <g>
+      <div style="display: flex; flex: 40; align-items: center; justify-content: center; max-height: 100%; padding-left: 20px; padding-right: 20px;">
+        <svg
+          version="1.1"
+          id="logo"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xml:space="preserve"
+          viewBox="0 0 32 32"
+          style="width: 100%; height: 100%; max-width: 100%; max-height: 100%; object-fit: contain;"
+        >
+          <defs>
+            <!-- Clip path para limitar el contenido dentro de la forma -->
+            <clipPath id="drop">
               <path
-                d="M16 32c-6.065 0-11-4.935-11-11 0-1.842.466-3.667 1.348-5.277l7.89-14.67.138-.196c.373-.533.978-.857 1.624-.857.65 0 1.258.328 1.631.867l.131.186 7.893 14.674c.879 1.61 1.345 3.433 1.345 5.273 0 6.065-4.935 11-11 11zm-.008-29.985l-7.886 14.662c-.725 1.323-1.106 2.815-1.106 4.323 0 4.963 4.038 9 9 9 4.963 0 9-4.037 9-9 0-1.506-.381-2.999-1.102-4.316l-.004-.006-7.819-14.539-.083-.124zM16 28c-.552 0-1-.447-1-1s.448-1 1-1c2.757 0 5-2.243 5-5 0-.553.447-1 1-1s1 .447 1 1c0 3.859-3.141 7-7 7z"
-                fill="${borderColour ? borderColour : 'var(--secondary-text-color)'}"
-              ></path>
-            </g>
-          </svg>
-        </div>
+                d="M 16 32 C 9.935 32 5 27.065 5 21 C 5 19.158 5.466 17.333 6.348 15.723 L 14.238 1.053 L 14.376 0.857 C 14.749 0.324 15.354 0 16 0 C 16.65 0 17.258 0.328 17.631 0.867 L 17.762 1.053 L 25.655 15.727 C 26.534 17.337 27 19.16 27 21 C 27 27.065 22.065 32 16 32 Z"
+              />
+            </clipPath>
+          </defs>
+          <!-- Grupo contenido dentro del clip-path -->
+          <g clip-path="url(#drop)">
+            <!-- Olas estáticas -->
+            <path 
+              fill="${fillDropColour ? fillDropColour : 'var(--accent-color)'}"
+              transform="translate(0, ${rainLevel})"
+              d="M 0 1 Q 0.67 1 1.33 0.5 Q 2.67 -0.5 4 0.5 Q 4.67 1 5.33 1 Q 6 1 6.67 0.5 Q 8 -0.5 9.33 0.5 Q 10 1 10.67 1 Q 11.33 1 12 0.5 Q 13.33 -0.5 14.67 0.5 Q 15.33 1 16 1 Q 16.67 1 17.33 0.5 Q 18.67 -0.5 20 0.5 Q 20.67 1 21.33 1 Q 22 1 22.67 0.5 Q 24 -0.5 25.33 0.5 Q 26 1 26.67 1 Q 27.33 1 28 0.5 Q 29.33 -0.5 30.67 0.5 Q 31.33 1 32 1 L 32 200 L 0 200 Z"
+            ></path>
+          </g>
+          <g>
+            <path
+              d="M16 32c-6.065 0-11-4.935-11-11 0-1.842.466-3.667 1.348-5.277l7.89-14.67.138-.196c.373-.533.978-.857 1.624-.857.65 0 1.258.328 1.631.867l.131.186 7.893 14.674c.879 1.61 1.345 3.433 1.345 5.273 0 6.065-4.935 11-11 11zm-.008-29.985l-7.886 14.662c-.725 1.323-1.106 2.815-1.106 4.323 0 4.963 4.038 9 9 9 4.963 0 9-4.037 9-9 0-1.506-.381-2.999-1.102-4.316l-.004-.006-7.819-14.539-.083-.124zM16 28c-.552 0-1-.447-1-1s.448-1 1-1c2.757 0 5-2.243 5-5 0-.553.447-1 1-1s1 .447 1 1c0 3.859-3.141 7-7 7z"
+              fill="${borderColour ? borderColour : 'var(--secondary-text-color)'}"
+            ></path>
+          </g>
+        </svg>
       </div>
     `;
   }
@@ -221,9 +221,9 @@ export class RainMeterCard extends LitElement {
         color: var(--secondary-text-color);
       }
       .text-container {
-        padding-bottom: 20px;
-        padding-left: 12px;
-        display: flex;
+        display: flex; 
+        flex: 60;
+        padding-left: 16px;
         flex-direction: column;
         justify-content: center;
       }
