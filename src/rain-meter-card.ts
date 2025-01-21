@@ -89,7 +89,7 @@ export class RainMeterCard extends LitElement {
 
     return html`
       <ha-card
-          style="height: 100%; display: flex; align-items: center; justify-content: center;"
+        style="height: 100%; display: flex;flex-direction: column;padding: 0 0 16px;"
         .header=${this.config.name}
         @action=${this._handleAction}
         .actionHandler=${actionHandler({
@@ -109,7 +109,7 @@ export class RainMeterCard extends LitElement {
 
   private _renderRainDrop(rainLevel: number, borderColour: string, fillDropColour: string | undefined): TemplateResult {
     return html`
-      <div style="display: flex; flex: 40; align-items: center; justify-content: center; max-height: 100%; padding-left: 20px; padding-right: 20px;">
+      <div style="display: flex; flex: 40; align-items: center; justify-content: center; max-height: 100%; padding: 0 12px 0;">
         <svg
           version="1.1"
           id="logo"
