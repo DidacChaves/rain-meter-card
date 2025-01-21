@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.7](https://github.com/DidacChaves/rain-meter-card/compare/v1.1.6...v1.1.7) (2025-01-21)
+
+
+### Bug Fixes
+
+* **master:** modify editor view ([943dd24](https://github.com/DidacChaves/rain-meter-card/commit/943dd24a0dd0682c48fc7c4a9fe406610855eca0))
+
 ## [1.1.6](https://github.com/DidacChaves/rain-meter-card/compare/v1.1.5...v1.1.6) (2025-01-21)
 
 
